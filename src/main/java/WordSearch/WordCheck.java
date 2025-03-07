@@ -1,7 +1,7 @@
 package WordSearch;
 import java.io.File;
-import java.io.FileInputStream;
-import java.util.Scanner;
+//import java.io.FileInputStream;
+//import java.util.Scanner;
 
 public class WordCheck {
 
@@ -32,7 +32,7 @@ public class WordCheck {
         File filecheck = new File(path);
         if (filecheck.exists()) {
             System.out.println("processing....");
-        } else {
+        } else{
             System.out.println(" your entered file is  not found......");
         }
 //        FileInputStream fis = new FileInputStream("filecheck");
