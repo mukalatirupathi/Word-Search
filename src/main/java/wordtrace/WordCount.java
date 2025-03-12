@@ -8,19 +8,19 @@ import java.io.IOException;
 
 public class WordCount {
 
-    public static void matchingWordCount(String FileInputPath, String InputWord) throws IOException {
+    public static void matchingWordCount(String inputFilePath, String inputWord) throws IOException {
         BufferedReader bufferedReader = null;
         int MatchingWordCount = 0;
         try {
-            bufferedReader = new BufferedReader(new FileReader(FileInputPath));
-            String Text = "";
+            bufferedReader = new BufferedReader(new FileReader(inputFilePath));
+            String text = "";
             String Line;
             while ((Line = bufferedReader.readLine()) != null) {
-                Text += Line;
+                text += Line;
             }
-            String[] Words = Text.split("\\s+");
+            String[] Words = text.split("\\s+");
             for (int i = 0; i < Words.length; i++) {
-                if (Words[i].equalsIgnoreCase(InputWord)) {
+                if (Words[i].equalsIgnoreCase(inputWord)) {
                     MatchingWordCount += 1;
                 }
             }
