@@ -1,19 +1,16 @@
 package wordtrace;
 
-import constants.InputFileConstants;
-
-import java.io.File;
+/**
+ * the main  class starts the wordtracetool
+ */
 public class WordTraceTool {
+    /**
+     * main method validate input arguments and start processing
+     * @param args
+     */
     public static void main(String[] args) {
-        String path = args[0];
-        String word = args[1];
-        System.out.println(InputFileConstants.EnteredPath + path);
-        System.out.println(InputFileConstants.EnteredWord + word);
-        File fileCheck = new File(path);
-        if (fileCheck.exists() && fileCheck.isFile() && (path.endsWith(InputFileConstants.TextExtensionMessage) || path.endsWith(InputFileConstants.JsonExtensionMessage))) {
-            System.out.println(InputFileConstants.TextMessage);
-        } else {
-            System.out.println(InputFileConstants.ErrorMessage);
+        InputFileValidation inputFileValidation = new InputFileValidation();
+        if (!inputFileValidation.validateArguments(args)) {
         }
     }
 }
