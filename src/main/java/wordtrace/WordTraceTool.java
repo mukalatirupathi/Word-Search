@@ -12,6 +12,7 @@ public class WordTraceTool {
     public static void main(String[] args) {
         InputFileValidation inputFileValidation = new InputFileValidation();
         if (inputFileValidation.validateArguments(args)) {
+            return;
         }
     }
 }
