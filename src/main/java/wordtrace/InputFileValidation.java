@@ -1,26 +1,55 @@
 package wordtrace;
-import constants.LogArgumentConstants;
+
+import constants.FileInputConstant;
+
 import java.io.File;
-import java.io.IOException;
+
+/**
+ * validate file paths and input arguments
+ */
 public class InputFileValidation {
-    public static void validateFilePath(String inputFilePath, String inputWord) throws IOException {
-        System.out.println(LogArgumentConstants.ENTERED_INPUT_PATH + inputFilePath);
-        System.out.println(LogArgumentConstants.ENTERED_INPUT_WORD + inputWord);
+    /**
+     * checks the correct number of arguments are provided
+     *
+     * @param args
+     * @return
+     */
+    public boolean validateArguments(String[] args) {
+        if (args.length > 2) {
+            System.out.println(FileInputConstant.ERROR_MORE_ARGUMENTS);
+            return false;
+        }
+        if (args.length < 2) {
+            System.out.println(FileInputConstant.ERROR_INSUFFICIENT_ARGUMENTS);
+            return false;
+        }
+        return validateFilePath(args);
+    }
+    /**
+     * validate the file's existance ,type,and extension
+     *
+     * @param args
+     * @return
+     */
+    private boolean validateFilePath(String[] args) {
+        String inputFilePath = args[0];
+        String inputWord = args[1];
+        System.out.println(FileInputConstant.ENTERED_INPUT_PATH + inputFilePath);
+        System.out.println(FileInputConstant.ENTERED_INPUT_WORD + inputWord);
         File fileCheck = new File(inputFilePath);
-        if(!inputFilePath.endsWith(LogArgumentConstants.TEXT_EXTENSION_MESSAGE) && !inputFilePath.endsWith(LogArgumentConstants.JSON_EXTENSION_MESSAGE))
-        {
-            System.out.println(LogArgumentConstants.WRONG_EXTENSION_MESSAGE);
-            return;
+        if (!(fileCheck.exists())) {
+            System.out.println(FileInputConstant.FILE_NOT_FOUND_MESSAGE);
+            return false;
         }
-        if(!(fileCheck.isFile())) {
-            System.out.println(LogArgumentConstants.NOT_FILE_MESSAGE);
-            return;
+        if (!(fileCheck.isFile())) {
+            System.out.println(FileInputConstant.NOT_FILE_MESSAGE);
+            return false;
         }
-        if (!(fileCheck.exists())){
-            System.out.println(LogArgumentConstants.FILE_NOT_FOUND_MESSAGE);
-            return;
+        if (!inputFilePath.endsWith(FileInputConstant.TEXT_EXTENSION_MESSAGE) && !inputFilePath.endsWith(FileInputConstant.JSON_EXTENSION_MESSAGE)) {
+            System.out.println(FileInputConstant.WRONG_EXTENSION_MESSAGE);
+            return false;
         }
-        System.out.println(LogArgumentConstants.SUCCESS_MESSAGE);
-        WordCount.matchingWordCount(inputFilePath, inputWord);
+        System.out.println(FileInputConstant.SUCCESS_MESSAGE);
+        return true;
     }
 }
