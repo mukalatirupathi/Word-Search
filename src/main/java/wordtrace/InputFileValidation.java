@@ -22,32 +22,34 @@ public class InputFileValidation {
             System.out.println(FileInputConstant.ERROR_INSUFFICIENT_ARGUMENTS);
             return false;
         }
-        return validatefilepath(args);
+        return validateFilePath(args);
     }
     /**
      * validate the file's existance ,type,and extension
      * @param args
      * @return
      */
-    private boolean validatefilepath(String[] args) {
+    private boolean validateFilePath(String[] args) {
         String inputFilePath = args[0];
         String inputWord = args[1];
         System.out.println(FileInputConstant.ENTERED_INPUT_PATH + inputFilePath);
         System.out.println(FileInputConstant.ENTERED_INPUT_WORD + inputWord);
 
         File fileCheck = new File(inputFilePath);
-        if (!inputFilePath.endsWith(FileInputConstant.TEXT_EXTENSION_MESSAGE) && !inputFilePath.endsWith(FileInputConstant.JSON_EXTENSION_MESSAGE)) {
-            System.out.println(FileInputConstant.WRONG_EXTENSION_MESSAGE);
+        if (!(fileCheck.exists())) {
+            System.out.println(FileInputConstant.FILE_NOT_FOUND_MESSAGE);
             return false;
         }
         if (!(fileCheck.isFile())) {
             System.out.println(FileInputConstant.NOT_FILE_MESSAGE);
             return false;
         }
-        if (!(fileCheck.exists())) {
-            System.out.println(FileInputConstant.FILE_NOT_FOUND_MESSAGE);
+
+        if (!inputFilePath.endsWith(FileInputConstant.TEXT_EXTENSION_MESSAGE) && !inputFilePath.endsWith(FileInputConstant.JSON_EXTENSION_MESSAGE)) {
+            System.out.println(FileInputConstant.WRONG_EXTENSION_MESSAGE);
             return false;
         }
+
         System.out.println(FileInputConstant.SUCCESS_MESSAGE);
         return true;
     }
