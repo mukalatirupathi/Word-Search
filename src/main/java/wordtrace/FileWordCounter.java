@@ -20,15 +20,19 @@ public class FileWordCounter {
      * @throws IOException
      */
     public static void findWordCountInFile(String inputFilePath, String inputWord) throws IOException {
-        int MatchingWordCount = 0;
+        int matchingWordCount = 0;
         String fileContents = Files.readString(Paths.get(inputFilePath));
-        StringTokenizer stringTokenizer = new StringTokenizer(fileContents);
-        while (stringTokenizer.hasMoreTokens()) {
-            String tokens = stringTokenizer.nextToken().replaceAll("[^a-zA-z0-9]", "");
-            if ((tokens.equalsIgnoreCase(inputWord))) {
-                MatchingWordCount += 1;
+        if (!(fileContents.isEmpty())) {
+            StringTokenizer stringTokenizer = new StringTokenizer(fileContents);
+            while (stringTokenizer.hasMoreTokens()) {
+                String tokens = stringTokenizer.nextToken().replaceAll(WordSearchConstant.REPLACING_CHARACTERS,"");
+                if ((tokens.equalsIgnoreCase(inputWord))) {
+                    matchingWordCount += 1;
+                }
             }
+            System.out.println(WordSearchConstant.SEARCH_WORD + matchingWordCount + WordSearchConstant.APPERED_WORD);
+        } else {
+            System.out.println(WordSearchConstant.EMPTY_FILE);
         }
-        System.out.println(WordSearchConstant.SEARCH_WORD + MatchingWordCount + WordSearchConstant.APPERED_WORD);
     }
 }
