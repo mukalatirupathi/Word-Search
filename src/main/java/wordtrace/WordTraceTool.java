@@ -1,4 +1,5 @@
 package wordtrace;
+
 /**
  * The main  class starts the wordtracetool
  */
@@ -9,16 +10,14 @@ public class WordTraceTool {
      * @param userArgs
      */
     public static void main(String[] userArgs) {
-
         InputFileValidation inputFileValidation = new InputFileValidation();
-        try{
+        try {
             if (inputFileValidation.validateArguments(userArgs)) {
                 String inputFilePath = userArgs[0];
                 String inputWord = userArgs[1];
-                FileWordCounter.findWordCountInFile(inputFilePath,inputWord);
+                FileWordCounter.findWordCountInFile(inputFilePath, inputWord);
             }
-        }
-        catch(Exception ioexception){
+        } catch (Exception ioexception) {
             ioexception.getMessage();
         }
     }
