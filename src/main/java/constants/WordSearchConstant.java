@@ -14,7 +14,7 @@ public class WordSearchConstant {
     public static final String FILE_NOT_FOUND_MESSAGE = "file doesn't exist ";
     public static final String JSON_EXTENSION_MESSAGE = ".json";
     public static final String NOT_FILE_MESSAGE = "The entered path is not a file ";
-    public static final String REPLACING_CHARACTERS = "[^a-zA-z0-9]";
+    public static final String REPLACING_CHARACTERS = "[^a-zA-Z0-9]";
     public static final String SEARCH_WORD = "your searched word will be appeared in this file is ";
     public static final String SUCCESS_MESSAGE = "Processing";
     public static final String TEXT_EXTENSION_MESSAGE = ".txt";
