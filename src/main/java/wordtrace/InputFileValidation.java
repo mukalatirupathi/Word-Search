@@ -1,11 +1,12 @@
 package wordtrace;
 
+import DAO.WordSearchEntity;
 import constants.WordSearchConstant;
 
 import java.io.File;
 
 /**
- * Validate file paths and input arguments
+ * validate file paths and input arguments
  */
 public class InputFileValidation {
     /**
@@ -13,9 +14,13 @@ public class InputFileValidation {
      *
      * @param args
      * @return
+     *
      */
+
+    WordSearchEntity wordSearchEntity=new WordSearchEntity();
     public boolean validateArguments(String[] args) {
         if (args.length > 2) {
+
             System.out.println(WordSearchConstant.ERROR_MORE_ARGUMENTS);
             return false;
         }
@@ -25,7 +30,6 @@ public class InputFileValidation {
         }
         return validateFilePath(args);
     }
-
     /**
      * Validate the file's existance ,type,and exension
      *
@@ -38,7 +42,7 @@ public class InputFileValidation {
         System.out.println(WordSearchConstant.ENTERED_INPUT_PATH + inputFilePath);
         System.out.println(WordSearchConstant.ENTERED_INPUT_WORD + inputWord);
         File fileCheck = new File(inputFilePath);
-        if (!(fileCheck.exists())) {
+        if (!fileCheck.exists()) {
             System.out.println(WordSearchConstant.FILE_NOT_FOUND_MESSAGE);
             return false;
         }

@@ -1,9 +1,9 @@
 package wordtrace;
-
 import constants.WordSearchConstant;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.StringTokenizer;
 /**
  * The class provides amethod to count occurances of a specfic word in a given text file
@@ -19,7 +19,7 @@ public class FileWordCounter {
      * @param inputWord
      * @throws IOException
      */
-    public static void findWordCountInFile(String inputFilePath, String inputWord) throws IOException {
+    public static int findWordCountInFile(String inputFilePath, String inputWord) throws IOException, SQLException, ClassNotFoundException {
         int matchingWordCount = 0;
         String fileContents = Files.readString(Paths.get(inputFilePath));
         if (!(fileContents.isEmpty())) {
@@ -34,5 +34,6 @@ public class FileWordCounter {
         } else {
             System.out.println(WordSearchConstant.EMPTY_FILE);
         }
+        return matchingWordCount;
     }
 }
