@@ -3,6 +3,7 @@ package databaseConnection;
 import constants.DataBaseConstants;
 import constants.WordSearchConstant;
 import dao.WordSearchEntity;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,7 +17,7 @@ import java.util.Properties;
  */
 public class AuditWordSearch {
     /**
-     *Establishes a connection to the database using properties from a file.
+     * Establishes a connection to the database using properties from a file.
      */
     private Connection auditGetConnection() throws SQLException, IOException {
         Properties properties = new Properties();
@@ -25,17 +26,14 @@ public class AuditWordSearch {
         String url = properties.getProperty(DataBaseConstants.URL_NAME);
         String username = properties.getProperty(DataBaseConstants.USER_NAME);
         String password = properties.getProperty(DataBaseConstants.PASSWORD_NAME);
-        Connection connection = DriverManager.getConnection(url, username, password);
-        //connection.close();
-        return connection;
+        return DriverManager.getConnection(url, username, password);
     }
     /**
-     *This  method inserts search results into a database table using a prepareStatement.
+     * This  method inserts search results into a database table using a prepareStatement.
      */
-    public void auditResult(WordSearchEntity wordSearchEntity) throws IOException, SQLException {
-        Connection connection = auditGetConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(WordSearchConstant.QUERY_CONSTANT);
-        try {
+    public void auditResult(WordSearchEntity wordSearchEntity) {
+        try (Connection connection = auditGetConnection();) {
+            PreparedStatement preparedStatement = connection.prepareStatement(WordSearchConstant.QUERY_CONSTANT);
             preparedStatement.setString(1, wordSearchEntity.getInputFilePath());
             preparedStatement.setString(2, wordSearchEntity.getInputWord());
             preparedStatement.setString(3, wordSearchEntity.getResultMsg());
@@ -44,7 +42,9 @@ public class AuditWordSearch {
             preparedStatement.execute();
             System.out.println(DataBaseConstants.INSERTION_MESSAGE);
         } catch (SQLException sQLException) {
-            System.out.println(sQLException.getMessage());;
+            System.out.println(sQLException.getMessage());
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
         }
     }
 }
