@@ -1,6 +1,5 @@
 package wordtrace;
 
-import DAO.WordSearchEntity;
 import constants.WordSearchConstant;
 
 import java.io.File;
@@ -11,13 +10,9 @@ import java.io.File;
 public class InputFileValidation {
     /**
      * Checks the correct number of arguments are provided
-     *
      * @param args
      * @return
-     *
      */
-
-    WordSearchEntity wordSearchEntity=new WordSearchEntity();
     public boolean validateArguments(String[] args) {
         if (args.length > 2) {
 
@@ -32,7 +27,6 @@ public class InputFileValidation {
     }
     /**
      * Validate the file's existance ,type,and exension
-     *
      * @param args
      * @return
      */

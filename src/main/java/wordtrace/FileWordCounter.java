@@ -3,7 +3,6 @@ import constants.WordSearchConstant;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.SQLException;
 import java.util.StringTokenizer;
 /**
  * The class provides amethod to count occurances of a specfic word in a given text file
@@ -14,12 +13,11 @@ public class FileWordCounter {
     /**
      * The method reads the content of the file,tokenizes the words
      * Removes the non-alphanumeric characters,and counts how many times
-     *
      * @param inputFilePath
      * @param inputWord
      * @throws IOException
      */
-    public static int findWordCountInFile(String inputFilePath, String inputWord) throws IOException, SQLException, ClassNotFoundException {
+    public static int findWordCountInFile(String inputFilePath, String inputWord) throws IOException {
         int matchingWordCount = 0;
         String fileContents = Files.readString(Paths.get(inputFilePath));
         if (!(fileContents.isEmpty())) {
