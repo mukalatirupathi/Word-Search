@@ -1,5 +1,4 @@
 package wordtrace;
-
 import constants.WordSearchConstant;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,12 +13,11 @@ public class FileWordCounter {
     /**
      * The method reads the content of the file,tokenizes the words
      * Removes the non-alphanumeric characters,and counts how many times
-     *
      * @param inputFilePath
      * @param inputWord
      * @throws IOException
      */
-    public static void findWordCountInFile(String inputFilePath, String inputWord) throws IOException {
+    public static int findWordCountInFile(String inputFilePath, String inputWord) throws IOException {
         int matchingWordCount = 0;
         String fileContents = Files.readString(Paths.get(inputFilePath));
         if (!(fileContents.isEmpty())) {
@@ -34,5 +32,6 @@ public class FileWordCounter {
         } else {
             System.out.println(WordSearchConstant.EMPTY_FILE);
         }
+        return matchingWordCount;
     }
 }
