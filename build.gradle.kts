@@ -1,8 +1,19 @@
 plugins {
     id("java")
 }
+tasks.jar {
+    from(sourceSets.main.get().output)
+    manifest {
+        attributes["Main-Class"] = "wordsearchtool/WordTraceTool"
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    dependsOn(configurations.runtimeClasspath)
 
-group = "org.example"
+    from({
+        configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) }
+    })
+}
+group = "wordsearchtool"
 version = "1.0-SNAPSHOT"
 
 repositories {
