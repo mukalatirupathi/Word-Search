@@ -1,9 +1,12 @@
-package wordsearchtool.wordtrace;
+package wordsearchtool;
 
-import wordsearchtool.constants.dao.WordSearchEntity;
+
 import wordsearchtool.constants.WordSearchConstant;
+import wordsearchtool.dao.WordSearchEntity;
 import wordsearchtool.databaseConnection.AuditWordSearch;
 import wordsearchtool.util.WordTraceToolUtil;
+import wordsearchtool.wordtrace.FileWordCounter;
+import wordsearchtool.wordtrace.InputFileValidation;
 
 /**
  * The main  class starts the wordtracetool

@@ -1,10 +1,12 @@
-package wordtrace;
+package wordsearchtool.wordtrace;
 
-import constants.DataBaseConstants;
-import constants.WordSearchConstant;
-import dao.WordSearchEntity;
-import databaseConnection.AuditWordSearch;
-import util.WordTraceToolUtil;
+
+
+import wordsearchtool.constants.DataBaseConstants;
+import wordsearchtool.constants.WordSearchConstant;
+import wordsearchtool.dao.WordSearchEntity;
+import wordsearchtool.databaseConnection.AuditWordSearch;
+import wordsearchtool.util.WordTraceToolUtil;
 
 import java.io.File;
 

@@ -1,5 +1,7 @@
-package wordtrace;
-import constants.WordSearchConstant;
+package wordsearchtool.wordtrace;
+
+import wordsearchtool.constants.WordSearchConstant;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

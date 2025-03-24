@@ -1,8 +1,9 @@
-package databaseConnection;
+package wordsearchtool.databaseConnection;
 
-import constants.DataBaseConstants;
-import constants.WordSearchConstant;
-import dao.WordSearchEntity;
+
+import wordsearchtool.constants.DataBaseConstants;
+import wordsearchtool.constants.WordSearchConstant;
+import wordsearchtool.dao.WordSearchEntity;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package constants;
+package wordsearchtool.constants;
 
 /**
  * Contains constants for database configuration and messages.

@@ -1,4 +1,4 @@
-package dao;
+package wordsearchtool.dao;
 
 import lombok.Data;
 

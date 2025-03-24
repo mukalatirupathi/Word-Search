@@ -1,4 +1,4 @@
-package constants;
+package wordsearchtool.constants;
 
 /**
  * This class contains constant string values used for error messages,

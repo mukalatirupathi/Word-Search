@@ -1,7 +1,7 @@
-package util;
+package wordsearchtool.util;
 
-import constants.WordSearchConstant;
-import dao.WordSearchEntity;
+
+import wordsearchtool.dao.WordSearchEntity;
 
 /**
  * Utility class for word search operations.
