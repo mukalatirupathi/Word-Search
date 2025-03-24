@@ -1,9 +1,9 @@
-package wordtrace;
+package wordsearchtool.wordtrace;
 
-import dao.WordSearchEntity;
-import constants.WordSearchConstant;
-import databaseConnection.AuditWordSearch;
-import util.WordTraceToolUtil;
+import wordsearchtool.constants.dao.WordSearchEntity;
+import wordsearchtool.constants.WordSearchConstant;
+import wordsearchtool.databaseConnection.AuditWordSearch;
+import wordsearchtool.util.WordTraceToolUtil;
 
 /**
  * The main  class starts the wordtracetool
